@@ -44,12 +44,15 @@ basic.forever(function () {
 })
 basic.forever(function () {
     if (飛機1.isTouching(主角)) {
+        music.startMelody(music.builtInMelody(Melodies.Punchline), MelodyOptions.Once)
         game.gameOver()
+        music.startMelody(music.builtInMelody(Melodies.BaDing), MelodyOptions.Once)
     }
 })
 basic.forever(function () {
     if (飛機.isTouching(主角)) {
         game.gameOver()
+        music.startMelody(music.builtInMelody(Melodies.BaDing), MelodyOptions.Once)
     }
 })
 basic.forever(function () {
