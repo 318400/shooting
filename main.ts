@@ -61,21 +61,21 @@ basic.forever(function () {
 })
 basic.forever(function () {
     if (子彈) {
-        if (子彈.isTouching(飛機)) {
-            soundExpression.happy.playUntilDone()
-            game.addScore(1)
-            飛機.set(LedSpriteProperty.X, 0)
-            飛機.set(LedSpriteProperty.Y, 0)
-        }
-    }
-})
-basic.forever(function () {
-    if (子彈) {
         if (子彈.isTouching(飛機1)) {
             soundExpression.happy.playUntilDone()
             game.addScore(2)
             飛機1.set(LedSpriteProperty.X, 0)
             飛機1.set(LedSpriteProperty.Y, 0)
+        }
+    }
+})
+basic.forever(function () {
+    if (子彈) {
+        if (子彈.isTouching(飛機)) {
+            soundExpression.happy.playUntilDone()
+            game.addScore(1)
+            飛機.set(LedSpriteProperty.X, 0)
+            飛機.set(LedSpriteProperty.Y, 0)
         }
     }
 })
