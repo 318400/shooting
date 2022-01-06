@@ -18,6 +18,7 @@ input.onButtonPressed(Button.B, function () {
 })
 let 子彈: game.LedSprite = null
 let 主角: game.LedSprite = null
+music.startMelody(music.builtInMelody(Melodies.Chase), MelodyOptions.Forever)
 game.setScore(0)
 主角 = game.createSprite(2, 4)
 let 飛機 = game.createSprite(0, 0)
@@ -44,6 +45,7 @@ basic.forever(function () {
 })
 basic.forever(function () {
     if (飛機1.isTouching(主角)) {
+        music.stopAllSounds()
         music.startMelody(music.builtInMelody(Melodies.Punchline), MelodyOptions.Once)
         game.gameOver()
         music.startMelody(music.builtInMelody(Melodies.BaDing), MelodyOptions.Once)
@@ -51,6 +53,8 @@ basic.forever(function () {
 })
 basic.forever(function () {
     if (飛機.isTouching(主角)) {
+        music.stopAllSounds()
+        music.startMelody(music.builtInMelody(Melodies.Punchline), MelodyOptions.Once)
         game.gameOver()
         music.startMelody(music.builtInMelody(Melodies.BaDing), MelodyOptions.Once)
     }
@@ -58,6 +62,7 @@ basic.forever(function () {
 basic.forever(function () {
     if (子彈) {
         if (子彈.isTouching(飛機)) {
+            soundExpression.happy.playUntilDone()
             game.addScore(1)
             飛機.set(LedSpriteProperty.X, 0)
             飛機.set(LedSpriteProperty.Y, 0)
@@ -67,6 +72,7 @@ basic.forever(function () {
 basic.forever(function () {
     if (子彈) {
         if (子彈.isTouching(飛機1)) {
+            soundExpression.happy.playUntilDone()
             game.addScore(2)
             飛機1.set(LedSpriteProperty.X, 0)
             飛機1.set(LedSpriteProperty.Y, 0)
